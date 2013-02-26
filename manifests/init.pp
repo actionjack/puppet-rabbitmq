@@ -28,9 +28,16 @@ class rabbitmq (
   $rabbitmq         = undef,
   $rabbitmquser     = undef,
   $rabbitmqpassword = undef,
-  $rabbitmqvhost    = undef 
-)  inherits rabbitmq::params {
+  $rabbitmqvhost    = undef,
+  $enable_console   = true
+) {
 
   include rabbitmq::packages
   include rabbitmq::service
+
+  if $rabbitmq::enable_console == true or
+     $rabbitmq::enable_console == 'enable' 
+     {
+       include rabbitmq::console
+     } 
 }

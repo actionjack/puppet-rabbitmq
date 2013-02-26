@@ -12,10 +12,10 @@
 #
 class rabbitmq::service {
 
-  $rabbitmq         = $rabbitmq::params::rabbitmq
-  $rabbitmquser     = $rabbitmq::params::rabbitmquser
-  $rabbitmqpassword = $rabbitmq::params::rabbitmqpassword
-  $rabbitmqvhost    = $rabbitmq::params::rabbitmqvhost
+  $rabbitmq         = $rabbitmq::rabbitmq
+  $rabbitmquser     = $rabbitmq::rabbitmquser
+  $rabbitmqpassword = $rabbitmq::rabbitmqpassword
+  $rabbitmqvhost    = $rabbitmq::rabbitmqvhost
 
   service {'rabbitmq-server':
     ensure     => 'running',
